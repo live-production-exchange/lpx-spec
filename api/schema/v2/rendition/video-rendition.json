@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liveproductionexchange.org/api/schema/rendition/video-rendition.json",
+  "title": "Video Rendition",
+  "description": "A specific version of a piece of video content.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for use with LPX API endpoints"
+    },
+    "name": {
+        "type": "string",
+        "description": "Descriptive name for the rendition."
+    },
+    "transportProtocol": {
+        "type": "string",
+        "description": "The transport protocol used for the rendition."
+    },
+    "href": {
+        "type": "string",
+        "description": "A URL to access or request the rendition video content."
+    },
+    "tags": {
+        "type": "array",
+        "description": "A list of tags associated with the rendition.",
+        "items": {
+            "type": "string"
+        }
+    }
+  },
+  "required": ["id", "transportProtocol", "href"]
+}

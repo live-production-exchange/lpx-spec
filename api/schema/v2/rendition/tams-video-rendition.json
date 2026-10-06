@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liveproductionexchange.org/api/schema/rendition/tams-video-rendition.json",
+  "title": "TAMS Video Rendition",
+  "description": "A piece of video content stored in TAMS",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for use with LPX API endpoints."
+    },
+    "sourceId": {
+        "type": "string",
+        "description": "The TAMS source ID for the rendition."
+    },
+    "href": {
+      "type": "string",
+      "description": "URL directing to the TAMS store. Suggest using the /sources/{source_id} endpoint, but should at least provide the network location of the TAMS store."
+    },
+    "name": {
+        "type": "string",
+        "description": "Descriptive name for the rendition."
+    },
+    "transportProtocol": "tams",
+    "tags": {
+        "type": "array",
+        "description": "A list of tags associated with the rendition.",
+        "items": {
+            "type": "string"
+        }
+    }
+  },
+  "required": ["id", "transportProtocol", "href", "sourceId"]
+}
