@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liveproductionexchange.org/api/schema/rendition/srt-video-rendition.json",
+  "title": "SRT Video Rendition",
+  "description": "A piece of video content, made accessible via SRT.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier for the rendition."
+    },
+    "name": {
+        "type": "string",
+        "description": "Descriptive name for the rendition."
+    },
+    "videoCodec": {
+        "type": "string",
+        "description": "The video codec used for the rendition."
+    },
+    "audioCodec": {
+        "type": "string",
+        "description": "The audio codec used for the rendition."
+    },
+    "transportProtocol": "srt",
+    "bitrate": {
+        "type": "integer",
+        "description": "In the case of non-ABR transport protocols, the bitrate of the rendition in bits per second."
+    },
+    "frameRate": {
+        "type": "number",
+        "description": "The frame rate of the rendition in frames per second."
+    },
+    "scanType": {
+        "type": "string",
+        "description": "The scan type of the rendition, e.g., 'progressive' or 'interlaced'."
+    },
+    "aspectRatio": {
+        "type": "string",
+        "description": "The aspect ratio of the rendition, e.g., '16:9'."
+    },
+    "width": {
+        "type": "integer",
+        "description": "The width of the rendition video content in pixels."
+    },
+    "height": {
+        "type": "integer",
+        "description": "The height of the rendition video content in pixels."
+    },
+    "href": {
+        "type": "string",
+        "description": "A URL to access or request the rendition video content."
+    },
+    "tags": {
+        "type": "array",
+        "description": "A list of tags associated with the rendition.",
+        "items": {
+            "type": "string"
+        }
+    }
+  },
+  "required": ["id", "transportProtocol", "href"]
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liveproductionexchange.org/api/schema/event/event.json",
+  "title": "Event",
+  "description": "An event, the editorial description of the exchanged media",
+  "type": "object",
+  "additionalProperties": true,
+  "definitions": {
+    "truncatedDateTimeType": {
+      "description": "Allows any of year (xs:gYear, YYYY), year/month (xs:gYearMonth, YYYY-MM), year/month/day (xs:date YYYY-MM-DD), and full datetime (xs:dateTime, YYYY-MM-DDTHH:MM:SS+HH:MM), all with an optional timezone suffix. Note that this does NOT include ISO8601 month of year (xs:gMonth, --MM) or yearly day (xs:gMonthDay, --MM-DD)",
+      "type": "string",
+      "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})(-(1[0-2]|0[1-9])(-(3[01]|0[1-9]|[12][0-9])(T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?)?)?)?$"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "LPX event ID",
+      "description": "Unique identifier for use with LPX API endpoints"
+    },
+    "uri": {
+      "type": "string",
+      "title": "Uniform Resource Identifier",
+      "description": "URI for the event",
+      "format": "uri"
+    },
+    "headline": {
+      "type": "string",
+      "title": "Headline",
+      "description": "Publishable headline for the event"
+    },
+    "version": {
+      "type": "string",
+      "title": "Version",
+      "description": "Version of the live event, incremented when an update is performed"
+    },
+    "versionCreated": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Version Created",
+      "description": "The date and time when this version of the live event was created"
+    },
+    "contentCreated": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Content Created",
+      "description": "The date and time when the live event was created"
+    },
+    "copyrightHolder": {
+      "type": "string",
+      "title": "Copyright Holder",
+      "description": "The person or organization claiming the intellectual property for the content"
+    },
+    "copyrightNotice": {
+      "type": "string",
+      "title": "Copyright Notice",
+      "description": "Any necessary copyright notice for claiming the intellectual property for the content"
+    },
+    "usageTerms": {
+      "type": "string",
+      "title": "Usage Terms",
+      "description": "Statement about the usage terms pertaining to the content"
+    },
+    "eventDetails": {
+      "type": "object",
+      "title": "Event Details",
+      "description": "A container for properties related to a planned event",
+      "properties": {
+        "dates": {
+          "type": "object",
+          "title": "Event Dates",
+          "description": "A container for properties related to dates and times for this event",
+          "properties": {
+            "startDate": {
+              "type": "string",
+              "title": "Scheduled Start Date",
+              "description": "Scheduled date and (optionally) time of the start of the event",
+              "$ref": "#/definitions/truncatedDateTimeType"
+            },
+            "endDate": {
+              "type": "string",
+              "title": "Scheduled End Date",
+              "description": "Scheduled date and (optionally) time of the end of the event",
+              "$ref": "#/definitions/truncatedDateTimeType"
+            },
+            "scheduledDuration": {
+              "type": "string",
+              "title": "Scheduled Duration",
+              "description": "Planned/scheduled duration of live event. Must use iCalendar duration format (RFC 5545)."
+            },
+            "actualStartDate": {
+              "title": "Actual Start Date",
+              "description": "Actual date and time of the start of the event, generally populated retrospectively",
+              "format": "date-time"
+            },
+            "actualEndDate": {
+              "title": "Actual End Date",
+              "description": "Actual date and time of the end of the event, generally populated retrospectively",
+              "format": "date-time"
+            }
+          }
+        },
+        "eventStatus": {
+          "type": "string",
+          "title": "Event Status",
+          "description": "Current status of live event. Suggested values are from https://cv.iptc.org/newscodes/eventstatus/",
+        },
+        "plannedCoverageStatus": {
+          "type": "string",
+          "title": "Planned Coverage Status",
+          "description": "Status of planned coverage. Suggested values are from https://cv.iptc.org/newscodes/eventoccurstatus/",
+        }
+      }
+    },
+    "renditions": {
+      "type": "array",
+      "title": "Renditions",
+      "description": "A list of renditions associated with the event. Currently supports only TAMS video renditions.",
+      "items": {
+        "$ref": "https://liveproductionexchange.org/api/schema/rendition/video-rendition.json"
+      }
+    }
+  },
+  "required": ["id", "version", "versionCreated"]
+}
