@@ -22,7 +22,7 @@
         "description": "Descriptive name for the rendition."
     },
     "type": {
-      "const": "tams"
+        "const": "tams"
     },
     "tags": {
         "type": "array",

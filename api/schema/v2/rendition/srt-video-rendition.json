@@ -22,7 +22,7 @@
         "description": "The audio codec used for the rendition."
     },
     "type": {
-      "const": "srt"
+        "const": "srt"
     },
     "bitrate": {
         "type": "integer",
