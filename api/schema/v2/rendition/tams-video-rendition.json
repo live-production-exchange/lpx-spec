@@ -21,7 +21,9 @@
         "type": "string",
         "description": "Descriptive name for the rendition."
     },
-    "transportProtocol": "tams",
+    "type": {
+      "const": "tams"
+    },
     "tags": {
         "type": "array",
         "description": "A list of tags associated with the rendition.",

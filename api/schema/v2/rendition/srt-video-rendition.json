@@ -21,7 +21,9 @@
         "type": "string",
         "description": "The audio codec used for the rendition."
     },
-    "transportProtocol": "srt",
+    "type": {
+      "const": "srt"
+    },
     "bitrate": {
         "type": "integer",
         "description": "In the case of non-ABR transport protocols, the bitrate of the rendition in bits per second."

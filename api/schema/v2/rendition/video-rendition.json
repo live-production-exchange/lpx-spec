@@ -14,9 +14,9 @@
         "type": "string",
         "description": "Descriptive name for the rendition."
     },
-    "transportProtocol": {
+    "type": {
         "type": "string",
-        "description": "The transport protocol used for the rendition."
+        "description": "The type of rendition, relates to how the media is accessed/transmitted. (e.g. HLS, SRT, TAMS)"
     },
     "href": {
         "type": "string",

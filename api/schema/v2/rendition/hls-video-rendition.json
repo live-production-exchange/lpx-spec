@@ -21,7 +21,9 @@
         "type": "string",
         "description": "The audio codec used for the rendition."
     },
-    "transportProtocol": "hls",
+    "type": {
+        "const": "hls"
+    },
     "maxBitrate": {
         "type": "integer",
         "description": "In the case of ABR transport protocols, the maximum bitrate of the rendition in bits per second."
