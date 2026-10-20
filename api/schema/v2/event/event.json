@@ -117,7 +117,7 @@
       "title": "Renditions",
       "description": "A list of renditions associated with the event. Currently supports only TAMS video renditions.",
       "items": {
-        "$ref": "https://liveproductionexchange.org/api/schema/rendition/video-rendition.json"
+        "$ref": "https://liveproductionexchange.org/schema/rendition/video-rendition.json"
       }
     }
   },
