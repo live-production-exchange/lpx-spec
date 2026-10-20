@@ -5,7 +5,7 @@
   "description": "An event, the editorial description of the exchanged media",
   "type": "object",
   "additionalProperties": true,
-  "definitions": {
+  "$defs": {
     "truncatedDateTimeType": {
       "description": "Allows any of year (xs:gYear, YYYY), year/month (xs:gYearMonth, YYYY-MM), year/month/day (xs:date YYYY-MM-DD), and full datetime (xs:dateTime, YYYY-MM-DDTHH:MM:SS+HH:MM), all with an optional timezone suffix. Note that this does NOT include ISO8601 month of year (xs:gMonth, --MM) or yearly day (xs:gMonthDay, --MM-DD)",
       "type": "string",
@@ -75,13 +75,13 @@
               "type": "string",
               "title": "Scheduled Start Date",
               "description": "Scheduled date and (optionally) time of the start of the event",
-              "$ref": "#/definitions/truncatedDateTimeType"
+              "$ref": "#/$defs/truncatedDateTimeType"
             },
             "endDate": {
               "type": "string",
               "title": "Scheduled End Date",
               "description": "Scheduled date and (optionally) time of the end of the event",
-              "$ref": "#/definitions/truncatedDateTimeType"
+              "$ref": "#/$defs/truncatedDateTimeType"
             },
             "scheduledDuration": {
               "type": "string",
@@ -117,7 +117,7 @@
       "title": "Renditions",
       "description": "A list of renditions associated with the event. Currently supports only TAMS video renditions.",
       "items": {
-        "$ref": "https://liveproductionexchange.org/schema/rendition/video-rendition.json"
+        "$ref": "/schema/rendition/video-rendition.json"
       }
     }
   },
