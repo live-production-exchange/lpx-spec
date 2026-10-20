@@ -1,0 +1,37 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://liveproductionexchange.org/api/schema/rendition/video-technical-attributes.json",
+    "title": "Video Technical Attributes",
+    "description": "Technical attributes relevant to video media.",
+    "type": "object",
+    "properties": {
+        "videoCodec": {
+            "type": "string",
+            "description": "The video codec used for the rendition."
+        },
+        "audioCodec": {
+            "type": "string",
+            "description": "The audio codec used for the rendition."
+        },
+        "frameRate": {
+            "type": "number",
+            "description": "The frame rate of the rendition in frames per second."
+        },
+        "scanType": {
+            "type": "string",
+            "description": "The scan type of the rendition, e.g., 'progressive' or 'interlaced'."
+        },
+        "aspectRatio": {
+            "type": "string",
+            "description": "The aspect ratio of the rendition, e.g., '16:9'."
+        },
+        "width": {
+            "type": "integer",
+            "description": "The width of the rendition video content in pixels."
+        },
+        "height": {
+            "type": "integer",
+            "description": "The height of the rendition video content in pixels."
+        }
+    }
+}
