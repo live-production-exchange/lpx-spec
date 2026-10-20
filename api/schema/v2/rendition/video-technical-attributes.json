@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://liveproductionexchange.org/api/schema/rendition/video-technical-attributes.json",
+    "$id": "https://liveproductionexchange.org/schema/rendition/video-technical-attributes.json",
     "title": "Video Technical Attributes",
     "description": "Technical attributes relevant to video media.",
     "type": "object",

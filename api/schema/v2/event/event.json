@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://liveproductionexchange.org/api/schema/event/event.json",
+  "$id": "https://liveproductionexchange.org/schema/event/event.json",
   "title": "Event",
   "description": "An event, the editorial description of the exchanged media",
   "type": "object",

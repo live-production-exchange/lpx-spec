@@ -1,55 +1,67 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://liveproductionexchange.org/api/schema/rendition/video-rendition.json",
-  "title": "Video Rendition",
-  "description": "A specific version of a piece of video content.",
-  "type": "object",
-  "additionalProperties": true,
-  "properties": {
-      "id": {
-          "type": "string",
-          "description": "The unique identifier for the rendition, used in LPX API calls."
-      },
-      "name": {
-          "type": "string",
-          "description": "Descriptive name for the rendition."
-      },
-      "type": {
-          "type": "string",
-          "description": "The type of rendition, relates to how the media is accessed/transmitted. (e.g. HLS, SRT, TAMS)",
-          "enum": ["hls", "srt", "tams"]
-      },
-      "if": {
-          "type": {
-              "const": "tams"
-          }
-      },
-      "then": {
-          "properties": {
-              "sourceId": {
-                  "type": "string",
-                  "description": "The TAMS source ID for the rendition."
-              }
-          },
-          "required": ["sourceId"]
-      },
-      "href": {
-          "type": "string",
-          "description": "A URL to access or request the rendition video content."
-      },
-      "bitrateProperties": {
-          "$ref": "/schema/rendition/bitrate-attributes.json"
-      },
-      "videoProperties": {
-          "$ref": "/schema/rendition/video-technical-attributes.json"
-      },
-      "tags": {
-          "type": "array",
-          "description": "A list of tags associated with the rendition.",
-          "items": {
-              "type": "string"
-          }
-      }
-  },
-  "required": ["id", "type", "href"]
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://liveproductionexchange.org/schema/rendition/video-rendition.json",
+    "title": "Video Rendition",
+    "description": "A specific version of a piece of video content.",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique identifier for the rendition, used in LPX API calls."
+        },
+        "name": {
+            "type": "string",
+            "description": "Descriptive name for the rendition."
+        },
+        "renditionType": {
+            "type": "string",
+            "description": "The type of rendition, relates to how the media is accessed/transmitted. (e.g. HLS, SRT, TAMS)",
+            "enum": [
+                "hls",
+                "srt",
+                "tams"
+            ]
+        },
+        "href": {
+            "type": "string",
+            "description": "A URL to access or request the rendition video content."
+        },
+        "bitrateProperties": {
+            "$ref": "/schema/rendition/bitrate-attributes.json"
+        },
+        "videoProperties": {
+            "$ref": "/schema/rendition/video-technical-attributes.json"
+        },
+        "tags": {
+            "type": "array",
+            "description": "A list of tags associated with the rendition.",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "renditionType",
+        "href"
+    ],
+    "if": {
+        "properties": {
+            "renditionType": {
+                "const": "tams"
+            }
+        }
+    },
+    "then": {
+        "properties": {
+            "sourceId": {
+                "type": "string",
+                "description": "The TAMS source ID for the rendition."
+            }
+        },
+        "required": [
+            "sourceId"
+        ]
+    }
 }
