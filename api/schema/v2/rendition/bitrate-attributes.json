@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://liveproductionexchange.org/schema/rendition/bitrate-attributes.json",
+    "title": "Bitrate Attributes",
+    "description": "Attributes encoding the bit-rate of a rendition.",
+    "type": "object",
+    "unevaluatedProperties": false,
+    "oneOf": [
+        {
+            "properties": {
+                "adaptive": {
+                    "type": "boolean",
+                    "description": "Whether the rendition media has a fixed bitrate or is available using ABR (Adaptive Bitrate Streaming)",
+                    "const": "true"
+                },
+                "maxBitrate": {
+                    "type": "integer",
+                    "description": "In the case of ABR, the maximum bitrate of the rendition in bits per second."
+                },
+                "minBitrate": {
+                    "type": "integer",
+                    "description": "In the case of ABR, the minimum bitrate of the rendition in bits per second."
+                }
+            },
+            "required": ["adaptive", "maxBitrate", "minBitrate"]
+        },
+        {
+            "properties": {
+                "adaptive": {
+                    "type": "boolean",
+                    "description": "Whether the rendition media has a fixed bitrate or is available using ABR (Adaptive Bitrate Streaming)",
+                    "const": "false"
+                },
+                "bitrate": {
+                    "type": "integer",
+                    "description": "In the case of fixed bitrate, the bitrate of the rendition in bits per second."
+                }
+            },
+            "required": ["adaptive", "bitrate"]
+        }
+    ]
+}
